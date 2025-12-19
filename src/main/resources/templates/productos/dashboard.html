@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard productos</title>
+</head>
+<body>
+
+<h1>Dashboard del inventario</h1>
+
+<h2>Total del inventario</h2>
+<p th:text="${totalInventario}"></p>
+
+<hr>
+
+<h2>Producto más cercano a acabarse</h2>
+
+<div th:if="${productoCritico != null}">
+	<p><b>ID:</b> <span th:text="${productoCritico.codigoProducto}"></span></p>
+	<p><b>Nombre:</b> <span th:text="${productoCritico.nombreProducto}"></span></p>
+	<p><b>Cantidad:</b> <span th:text="${productoCritico.cantidadProducto}"></span></p>
+</div>
+
+<div th:if="${productoCritico == null}">
+	<p>No hay productos registrados</p>
+</div>
+
+<br>
+<a th:href="@{/productos/mostrar}">Volver a productos</a>
+
+</body>
+</html>
